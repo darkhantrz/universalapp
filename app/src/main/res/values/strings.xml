@@ -2,7 +2,7 @@
     <string name="app_name">Universal app</string>
     <string name="bmi_calculator">BMI calculator</string>
     <string name="countdown_timer">Countdown timer</string>
-    <string name="choose">Choose, what do you want?</string>
+    <string name="choose">Universal App</string>
     <string name="weather_forecast">Weather forecast</string>
     <string name="alarm">Set alarm</string>
     <string name="weight">Your weight in kg:</string>
