@@ -17,7 +17,7 @@
         android:layout_marginTop="150sp"/>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/bmi_calculator"
         style="@style/Widget.Material3.Button.ElevatedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -26,10 +26,30 @@
         />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/countdown_timer"
+        style="@style/Widget.Material3.Button.ElevatedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/countdown_timer"
+        android:layout_marginBottom="20sp"
+        />
+
+    <Button
+        android:id="@+id/weather"
+        style="@style/Widget.Material3.Button.ElevatedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/weather_forecast"
+        android:layout_marginBottom="20sp"
+        />
+
+    <Button
+        android:id="@+id/alarm"
+        style="@style/Widget.Material3.Button.ElevatedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/alarm"
+        android:layout_marginBottom="20sp"
         />
 
 </androidx.appcompat.widget.LinearLayoutCompat>
