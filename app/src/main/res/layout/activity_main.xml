@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
@@ -25,17 +26,23 @@
         android:padding="5dp">
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardView1"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            app:cardCornerRadius="20dp">
+            app:cardCornerRadius="20dp"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:focusable="true">
+            <!--android:foreground="?attr/selectableItemBackgroundBorderless" is for like animation when tapping on CardView-->
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <TextView
+                    android:id="@+id/calc1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -62,7 +69,10 @@
             android:layout_height="0dp"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            app:cardCornerRadius="20dp">
+            app:cardCornerRadius="20dp"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:focusable="true">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -94,7 +104,10 @@
             android:layout_height="0dp"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            app:cardCornerRadius="20dp">
+            app:cardCornerRadius="20dp"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:focusable="true">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -126,7 +139,10 @@
             android:layout_height="0dp"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            app:cardCornerRadius="20dp">
+            app:cardCornerRadius="20dp"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:focusable="true">
 
             <RelativeLayout
                 android:layout_width="match_parent"

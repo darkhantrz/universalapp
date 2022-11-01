@@ -10,6 +10,8 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
+import androidx.core.content.ContextCompat.getSystemService
 
 class BmiCalculatorActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,10 +24,15 @@ class BmiCalculatorActivity : AppCompatActivity() {
         val result: TextView = findViewById(R.id.result)
 
         calculateBtn.setOnClickListener {
-            if (height == null || weight == null) {
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-                finish()
+            if (weight.text.toString() == "") {
+                Toast.makeText(applicationContext, "Enter your weight", Toast.LENGTH_SHORT)
+                    .show()
+            } else if (height.text.toString() == "") {
+                Toast.makeText(applicationContext, "Enter your height", Toast.LENGTH_SHORT)
+                    .show()
+            } else if (height.text.toString() == "0") {
+                Toast.makeText(applicationContext, "Height should not be 0!", Toast.LENGTH_SHORT)
+                    .show()
             } else {
                 val h = height.text.toString().toFloat() / 100 // /100 to get height in meter
                 val w = weight.text.toString().toFloat()
@@ -41,7 +48,7 @@ class BmiCalculatorActivity : AppCompatActivity() {
                     result.setTextColor(Color.parseColor("#ff425f"))
                 }
 
-                hideSoftKeyboard(calculateBtn)
+                hideSoftKeyboard(calculateBtn) // to close keyboard after tapping the button
             }
         }
     }
