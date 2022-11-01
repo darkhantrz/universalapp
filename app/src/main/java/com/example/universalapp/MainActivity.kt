@@ -40,6 +40,11 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        val openNavDrawer : ImageView = binding.openNavDrawer
+        openNavDrawer.setOnClickListener {
+            binding.drawerLayout.open()
+        }
+
         val bmiCalculatorCardView : CardView = binding.cardView1
         bmiCalculatorCardView.setOnClickListener {
             openBmiCalculatorActivity()
