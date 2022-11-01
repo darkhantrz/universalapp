@@ -35,6 +35,7 @@
         android:background="@drawable/edit_bg"
         android:fontFamily="@font/baloo"
         android:inputType="numberDecimal"
+        android:hint="@string/hintWeight"
         android:padding="12sp" />
 
     <TextView
@@ -54,6 +55,7 @@
         android:layout_marginBottom="15sp"
         android:background="@drawable/edit_bg"
         android:fontFamily="@font/baloo"
+        android:hint="@string/hintHeight"
         android:inputType="numberDecimal"
         android:padding="12sp" />
 

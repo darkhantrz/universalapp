@@ -1,7 +1,6 @@
 package com.example.universalapp
 
 import android.content.Context
-import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,7 +10,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.content.ContextCompat.getSystemService
 
 class BmiCalculatorActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,15 +34,15 @@ class BmiCalculatorActivity : AppCompatActivity() {
             } else {
                 val h = height.text.toString().toFloat() / 100 // /100 to get height in meter
                 val w = weight.text.toString().toFloat()
-                val res = w / (h * h) // formula to calculate the BMI\
-                if (res <= 18.5) {
-                    result.text = "%.1f".format(res).plus(" BMI").plus("\n Underweight")
+                val bmi = w / (h * h) // formula to calculate the BMI\
+                if (bmi <= 18.5) {
+                    result.text = "%.1f".format(bmi).plus(" BMI").plus("\n Underweight")
                     result.setTextColor(Color.parseColor("#469eeb"))
-                } else if (res > 18.5 && res <= 25.0) {
-                    result.text = "%.1f".format(res).plus(" BMI").plus("\n Normal")
+                } else if (bmi > 18.5 && bmi <= 25.0) {
+                    result.text = "%.1f".format(bmi).plus(" BMI").plus("\n Normal")
                     result.setTextColor(Color.parseColor("#02a121"))
                 } else {
-                    result.text = "%.1f".format(res).plus(" BMI").plus("\n Overweight")
+                    result.text = "%.1f".format(bmi).plus(" BMI").plus("\n Overweight")
                     result.setTextColor(Color.parseColor("#ff425f"))
                 }
 

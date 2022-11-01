@@ -12,4 +12,6 @@
     <string name="underweight">Underweight</string>
     <string name="normal">Normal</string>
     <string name="overweight">Overweight</string>
+    <string name="hintHeight">Height</string>
+    <string name="hintWeight">Weight</string>
 </resources>

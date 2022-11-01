@@ -8,14 +8,17 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import com.example.universalapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val bmiCalculatorCardView : CardView = findViewById(R.id.cardView1)
+        val bmiCalculatorCardView : CardView = binding.cardView1
         bmiCalculatorCardView.setOnClickListener {
             openBmiCalculatorActivity()
         }
