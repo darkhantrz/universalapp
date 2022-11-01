@@ -8,10 +8,26 @@
     android:orientation="vertical"
     tools:context=".BmiCalculatorActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/goBackToMain"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/back"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:contentDescription="@string/goBack" />
+
+    </LinearLayout>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80sp"
+        android:layout_marginTop="30sp"
         android:layout_marginBottom="50sp"
         android:fontFamily="@font/baloo"
         android:text="@string/bmi_calculator"

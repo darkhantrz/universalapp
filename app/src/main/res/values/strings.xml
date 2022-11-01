@@ -14,4 +14,7 @@
     <string name="overweight">Overweight</string>
     <string name="hintHeight">Height</string>
     <string name="hintWeight">Weight</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="goBack">goBackToMainActivity</string>
 </resources>
