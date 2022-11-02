@@ -26,4 +26,5 @@
     <string name="addNewAlarm">Add new alarm</string>
     <string name="add">Add</string>
     <string name="cancel">Cancel</string>
+    <string name="add_alarm">Add Alarm</string>
 </resources>

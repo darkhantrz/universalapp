@@ -16,6 +16,7 @@ import com.example.universalapp.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var toggle: ActionBarDrawerToggle
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,7 +34,7 @@ class MainActivity : AppCompatActivity() {
                     R.id.bmi -> { openBmiCalculatorActivity() }
                     R.id.countdown -> { openCountdownActivity() }
                     R.id.weather -> { openWeatherForecastActivity() }
-                    R.id.alarm -> {}
+                    R.id.alarm -> { openSetAlarmActivity() }
                 }
                 true
             }
@@ -59,6 +60,11 @@ class MainActivity : AppCompatActivity() {
         weatherForecastCardView.setOnClickListener {
             openWeatherForecastActivity()
         }
+
+        val setAlarmCardView : CardView = binding.cardView4
+        setAlarmCardView.setOnClickListener {
+            openSetAlarmActivity()
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -82,6 +88,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun openWeatherForecastActivity() {
         val intent = Intent(this, WeatherForecastActivity::class.java)
+        startActivity(intent)
+        binding.drawerLayout.close()
+    }
+
+    private fun openSetAlarmActivity() {
+        val intent = Intent(this, SetAlarm::class.java)
         startActivity(intent)
         binding.drawerLayout.close()
     }
