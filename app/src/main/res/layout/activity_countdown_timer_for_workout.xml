@@ -9,8 +9,24 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/goBackToMain"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:contentDescription="@string/goBack"
+            android:src="@drawable/back" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="380sp"
+        android:layout_marginTop="250sp"
         android:gravity="center">
 
         <EditText
@@ -24,6 +40,7 @@
             android:textColor="#FFFFFF"
             android:textSize="30sp"
             android:inputType="number"
+            android:maxLength="2"
             android:textStyle="bold" />
 
         <TextView
@@ -48,6 +65,7 @@
             android:textColor="#FFFFFF"
             android:textSize="30sp"
             android:inputType="number"
+            android:maxLength="2"
             android:textStyle="bold" />
 
         <TextView
@@ -72,6 +90,7 @@
             android:textColor="#FFFFFF"
             android:textSize="30sp"
             android:inputType="number"
+            android:maxLength="2"
             android:textStyle="bold" />
 
 
@@ -106,30 +125,30 @@
         android:layout_marginBottom="150sp"
         android:src="@drawable/play_icon" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"
-        android:layout_marginHorizontal="30sp"
-        android:layout_marginStart="80sp"
-        android:layout_marginBottom="660sp"
-        android:fontFamily="@font/baloo"
-        android:text="@string/enter_time"
-        android:textSize="25sp" />
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        android:layout_marginHorizontal="30sp"-->
+<!--        android:layout_marginStart="80sp"-->
+<!--        android:layout_marginBottom="660sp"-->
+<!--        android:fontFamily="@font/baloo"-->
+<!--        android:text="@string/enter_time"-->
+<!--        android:textSize="25sp" />-->
 
-    <EditText
-        android:id="@+id/hms"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="80sp"
-        android:layout_marginBottom="602dp"
-        android:background="@drawable/edit_bg"
-        android:fontFamily="@font/baloo"
-        android:hint="@string/exampleOfHMS"
-        android:inputType="time"
-        android:padding="12sp" />
+<!--    <EditText-->
+<!--        android:id="@+id/hms"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        android:layout_marginStart="80sp"-->
+<!--        android:layout_marginBottom="602dp"-->
+<!--        android:background="@drawable/edit_bg"-->
+<!--        android:fontFamily="@font/baloo"-->
+<!--        android:hint="@string/exampleOfHMS"-->
+<!--        android:inputType="time"-->
+<!--        android:padding="12sp" />-->
 
 </RelativeLayout>

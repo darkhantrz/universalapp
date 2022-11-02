@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.CountDownTimer
 import android.os.LocaleList
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -14,10 +15,10 @@ import java.util.*
 import java.util.concurrent.TimeUnit
 
 class CountdownTimerForWorkoutActivity : AppCompatActivity() {
-    private var duration = 120
+    private var duration : Long = 120
     private var timerRunning = false
 
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint("MissingInflatedId", "SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -28,7 +29,13 @@ class CountdownTimerForWorkoutActivity : AppCompatActivity() {
         val seconds: EditText = findViewById(R.id.second)
         val start: FloatingActionButton = findViewById(R.id.play)
 
-        val inputEditText : EditText = findViewById(R.id.hms)
+//        val inputEditText : EditText = findViewById(R.id.hms)
+
+        val goBackToMainActivity: ImageView = findViewById(R.id.goBackToMain)
+
+        goBackToMainActivity.setOnClickListener {
+            finish()
+        }
 
 
         start.setOnClickListener {
@@ -37,28 +44,26 @@ class CountdownTimerForWorkoutActivity : AppCompatActivity() {
                 hour.isFocusable = false
                 min.isFocusable = false
                 seconds.isFocusable = false
+                var sec = 0
 
-                if (inputEditText.text.toString() != "") {
-                    val input = inputEditText.text.toString()
-                    print(input)
-                    val inputHourMinSec = input.split(":")
-                    val inputHour = inputHourMinSec[0].toLong()
-                    val inputMin = inputHourMinSec[1].toLong()
-                    val inputSeconds = inputHourMinSec[2].toLong()
-                    if (inputHour > 0) {
-                        duration = (inputHour * 120).toInt()
-                    }
-                    if (inputMin > 0) {
-                        duration += inputMin.toInt()
-                    }
-                    if (inputSeconds > 0) {
-                        duration = (inputSeconds / 60).toInt()
-                    }
+                if (hour.text.toString().toInt() > 0) {
+                    duration *= hour.text.toString().toInt()
+                }
+                if (min.text.toString().toInt() > 0) {
+                    duration += min.text.toString().toInt()
+                }
+                if (min.text.toString().toInt() > 59) {
+                    min.setText("59")
+                }
+                if (seconds.text.toString().toInt() > 59) {
+                    sec += seconds.text.toString().toInt()
+                }
+                if (seconds.text.toString().toInt() > 59) {
+                    sec = 59
                 }
 
-                object : CountDownTimer((duration * 30000).toLong(), 1000) {
+                object : CountDownTimer(duration * 1000, 1000) {
 
-                    // Callback function, fired on regular interval
                     override fun onTick(millisUntilFinished: Long) {
                         val time = String.format(
                             Locale.getDefault(),
