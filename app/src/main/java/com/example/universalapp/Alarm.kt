@@ -1,3 +1,3 @@
 package com.example.universalapp
 
-data class Alarm(val imageId: Int, val title: String)
+data class Alarm(val alarmId: Int, val title: String)
