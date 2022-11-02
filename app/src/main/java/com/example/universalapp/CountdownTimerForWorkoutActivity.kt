@@ -15,8 +15,9 @@ import java.util.*
 import java.util.concurrent.TimeUnit
 
 class CountdownTimerForWorkoutActivity : AppCompatActivity() {
-    private var duration : Long = 120
+    private var duration: Long = 0
     private var timerRunning = false
+    lateinit var timer: CountDownTimer
 
     @SuppressLint("MissingInflatedId", "SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,6 +29,8 @@ class CountdownTimerForWorkoutActivity : AppCompatActivity() {
         val min: EditText = findViewById(R.id.min)
         val seconds: EditText = findViewById(R.id.second)
         val start: FloatingActionButton = findViewById(R.id.play)
+        val pause: FloatingActionButton = findViewById(R.id.pause)
+        val stop: FloatingActionButton = findViewById(R.id.stop)
 
 //        val inputEditText : EditText = findViewById(R.id.hms)
 
@@ -47,22 +50,16 @@ class CountdownTimerForWorkoutActivity : AppCompatActivity() {
                 var sec = 0
 
                 if (hour.text.toString().toInt() > 0) {
-                    duration *= hour.text.toString().toInt()
+                    duration += hour.text.toString().toLong() * 3600
                 }
                 if (min.text.toString().toInt() > 0) {
-                    duration += min.text.toString().toInt()
+                    duration += min.text.toString().toInt() * 60
                 }
-                if (min.text.toString().toInt() > 59) {
-                    min.setText("59")
-                }
-                if (seconds.text.toString().toInt() > 59) {
-                    sec += seconds.text.toString().toInt()
-                }
-                if (seconds.text.toString().toInt() > 59) {
-                    sec = 59
+                if (seconds.text.toString().toInt() > 0) {
+                    duration += seconds.text.toString().toInt()
                 }
 
-                object : CountDownTimer(duration * 1000, 1000) {
+                timer = object : CountDownTimer(duration * 1000, 1000) {
 
                     override fun onTick(millisUntilFinished: Long) {
                         val time = String.format(
@@ -90,17 +87,35 @@ class CountdownTimerForWorkoutActivity : AppCompatActivity() {
                         seconds.setText(hoursMinSec[2].toString())
                     }
 
-                    // Callback function, fired
-                    // when the time is up
                     override fun onFinish() {
                         duration = 120
                         timerRunning = false
                     }
                 }.start()
             } else {
-                Toast.makeText(applicationContext, "Timer is already running", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, "Timer is already running", Toast.LENGTH_SHORT)
+                    .show()
             }
 
+        }
+
+        pause.setOnClickListener {
+//            if (!timerRunning) {
+//                timer.cancel()
+//            }
+        }
+
+        stop.setOnClickListener {
+//            if (!timerRunning) {
+//                timer.cancel()
+//                hour.setText("00")
+//                min.setText("00")
+//                seconds.setText("00")
+//                timerRunning = false
+//                hour.isFocusable = true
+//                min.isFocusable = true
+//                seconds.isFocusable = true
+//            }
         }
     }
 }

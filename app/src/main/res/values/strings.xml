@@ -23,4 +23,7 @@
     <string name="enter_time">Enter time</string>
     <string name="_59">59</string>
     <string name="_01">01</string>
+    <string name="addNewAlarm">Add new alarm</string>
+    <string name="add">Add</string>
+    <string name="cancel">Cancel</string>
 </resources>

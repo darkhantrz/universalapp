@@ -40,7 +40,7 @@
             android:textColor="#FFFFFF"
             android:textSize="30sp"
             android:inputType="number"
-            android:maxLength="2"
+            android:maxLength="3"
             android:textStyle="bold" />
 
         <TextView
