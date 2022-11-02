@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
                 when (it.itemId) {
                     R.id.bmi -> { openBmiCalculatorActivity() }
                     R.id.countdown -> { openCountdownActivity() }
-                    R.id.weather -> {}
+                    R.id.weather -> { openWeatherForecastActivity() }
                     R.id.alarm -> {}
                 }
                 true
@@ -54,6 +54,11 @@ class MainActivity : AppCompatActivity() {
         countdownTimerCardView.setOnClickListener {
             openCountdownActivity()
         }
+
+        val weatherForecastCardView : CardView = binding.cardView3
+        weatherForecastCardView.setOnClickListener {
+            openWeatherForecastActivity()
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -71,6 +76,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun openCountdownActivity() {
         val intent = Intent(this, CountdownTimerForWorkoutActivity::class.java)
+        startActivity(intent)
+        binding.drawerLayout.close()
+    }
+
+    private fun openWeatherForecastActivity() {
+        val intent = Intent(this, WeatherForecastActivity::class.java)
         startActivity(intent)
         binding.drawerLayout.close()
     }
