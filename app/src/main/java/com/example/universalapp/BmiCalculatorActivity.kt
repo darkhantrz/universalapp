@@ -15,7 +15,7 @@ import android.widget.TextView
 import android.widget.Toast
 
 class BmiCalculatorActivity : AppCompatActivity() {
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint("MissingInflatedId", "SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bmi_calculator)

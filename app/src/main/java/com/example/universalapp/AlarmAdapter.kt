@@ -1,5 +1,6 @@
 package com.example.universalapp
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,10 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.universalapp.databinding.AlarmItemBinding
 
 class AlarmAdapter: RecyclerView.Adapter<AlarmAdapter.AlarmHolder>() {
-    val alarmList = ArrayList<Alarm>()
+    private val alarmList = ArrayList<Alarm>()
 
     class AlarmHolder(item: View): RecyclerView.ViewHolder(item) {
-        val binding = AlarmItemBinding.bind(item)
+        private val binding = AlarmItemBinding.bind(item)
         fun bind(alarm: Alarm) = with(binding) {
             tvTitle.text = alarm.title
         }
@@ -29,6 +30,7 @@ class AlarmAdapter: RecyclerView.Adapter<AlarmAdapter.AlarmHolder>() {
         return alarmList.size
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun addAlarm(alarm: Alarm) {
         alarmList.add(alarm)
         notifyDataSetChanged()
