@@ -12,6 +12,8 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.viewModels
+import com.example.universalapp.database.BMI
+import com.example.universalapp.database.BMIDatabase
 
 class BmiCalculatorActivity : AppCompatActivity() {
 
@@ -22,14 +24,21 @@ class BmiCalculatorActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bmi_calculator)
 
+        val db = BMIDatabase.getDatabase(this)
+
         val calculateBtn: Button = findViewById(R.id.btn_calculate)
+        val userName: EditText = findViewById(R.id.name)
         val height: EditText = findViewById(R.id.height)
         val weight: EditText = findViewById(R.id.weight)
-        var result: TextView = findViewById(R.id.result)
+        val result: TextView = findViewById(R.id.result)
 
         calculateBtn.setOnClickListener {
             viewModel.calculate(height.text.toString(), weight.text.toString())
             hideSoftKeyboard(calculateBtn)
+            val bmiData = BMI(null, userName.text.toString(), weight.text.toString(), height.text.toString(), viewModel.result.value.toString())
+            Thread {
+                db.getBmiDao().addBmiData(bmiData)
+            }.start()
         }
 
         val goBackToMainActivity: ImageView = findViewById(R.id.goBackToMain)
