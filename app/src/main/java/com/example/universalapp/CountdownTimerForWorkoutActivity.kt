@@ -16,8 +16,11 @@ import java.util.concurrent.TimeUnit
 
 class CountdownTimerForWorkoutActivity : AppCompatActivity() {
     private var duration: Long = 0
-    private var timerRunning = false
+    private var timerRunning: Boolean = false
+    private var timerPaused: Boolean = false
+    private var timerCanceled: Boolean = false
     lateinit var timer: CountDownTimer
+    private var timeLeft: Long = 0
 
     @SuppressLint("MissingInflatedId", "SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,7 +50,6 @@ class CountdownTimerForWorkoutActivity : AppCompatActivity() {
                 hour.isFocusable = false
                 min.isFocusable = false
                 seconds.isFocusable = false
-                var sec = 0
 
                 if (hour.text.toString().toInt() > 0) {
                     duration += hour.text.toString().toLong() * 3600
@@ -82,9 +84,9 @@ class CountdownTimerForWorkoutActivity : AppCompatActivity() {
 
                         val hoursMinSec = time.split(":")
 
-                        hour.setText(hoursMinSec[0].toString())
-                        min.setText(hoursMinSec[1].toString())
-                        seconds.setText(hoursMinSec[2].toString())
+                        hour.setText(hoursMinSec[0])
+                        min.setText(hoursMinSec[1])
+                        seconds.setText(hoursMinSec[2])
                     }
 
                     override fun onFinish() {
@@ -100,22 +102,23 @@ class CountdownTimerForWorkoutActivity : AppCompatActivity() {
         }
 
         pause.setOnClickListener {
-//            if (!timerRunning) {
-//                timer.cancel()
-//            }
+            timerPaused = true
+            if (!timerRunning) {
+                timer.cancel()
+            }
         }
 
         stop.setOnClickListener {
-//            if (!timerRunning) {
-//                timer.cancel()
-//                hour.setText("00")
-//                min.setText("00")
-//                seconds.setText("00")
-//                timerRunning = false
-//                hour.isFocusable = true
-//                min.isFocusable = true
-//                seconds.isFocusable = true
-//            }
+            if (!timerRunning) {
+                timer.cancel()
+                hour.setText("00")
+                min.setText("00")
+                seconds.setText("00")
+                timerRunning = false
+                hour.isFocusable = true
+                min.isFocusable = true
+                seconds.isFocusable = true
+            }
         }
     }
 }
