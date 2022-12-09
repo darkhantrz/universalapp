@@ -148,7 +148,7 @@
                             android:layout_centerVertical="true"
                             android:layout_marginStart="15dp"
                             android:fontFamily="@font/baloo"
-                            android:text="@string/weather_forecast"
+                            android:text="@string/image_shower"
                             android:textSize="18sp" />
 
                         <ImageView

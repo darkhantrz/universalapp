@@ -28,15 +28,14 @@
 
     <ImageView
         android:id="@+id/image1"
-        android:layout_width="380dp"
-        android:layout_height="350dp"
-        android:layout_marginTop="132dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         app:layout_constraintBottom_toTopOf="@+id/btnNxtImg"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.226"
         tools:srcCompat="@tools:sample/avatars" />
 
     <LinearLayout
@@ -51,16 +50,16 @@
 
     <Button
         android:id="@+id/btnNxtImg"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
         android:layout_marginHorizontal="30sp"
-        android:layout_marginBottom="116dp"
+        android:layout_marginBottom="16dp"
         android:fontFamily="@font/baloo"
         android:text="@string/next_image"
         android:textSize="25sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
