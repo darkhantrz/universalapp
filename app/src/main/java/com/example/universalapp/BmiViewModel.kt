@@ -2,6 +2,7 @@ package com.example.universalapp
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.universalapp.database.BMIDatabase
 
 class BmiViewModel : ViewModel() {
 
@@ -23,6 +24,12 @@ class BmiViewModel : ViewModel() {
             }
         }
     }
+
+//    val db = BMIDatabase.getDatabase()
+//
+//    if (db.getBmiDao().countOfRows().toString().toInt() != 0) {
+//
+//    }
 
 
 }
