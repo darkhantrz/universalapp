@@ -1,6 +1,7 @@
 package com.example.universalapp
 
 import android.content.Context
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.universalapp.database.BMI
@@ -27,12 +28,22 @@ class BmiViewModel : ViewModel() {
                 result.value = "%.1f".format(bmi).plus(" BMI").plus("\n Overweight")
                 color.value = "#ff425f"
             }
-        }
 
-        val db = BMIDatabase.getDatabase(context)
-        val bmiData = BMI(null, userName, weight, height, result.value.toString())
-        GlobalScope.launch {
-            db.getBmiDao().addBmiData(bmiData)
+            val db = BMIDatabase.getDatabase(context)
+            val bmiData = BMI(null, userName, weight, height, result.value.toString())
+            GlobalScope.launch {
+                db.getBmiDao().addBmiData(bmiData)
+            }
+
+        } else if (userName == "") {
+            Toast.makeText(context, "Name should not be empty!", Toast.LENGTH_SHORT)
+                .show()
+        } else if (height == "" || height == "0") {
+            Toast.makeText(context, "Height should not be empty or 0!", Toast.LENGTH_SHORT)
+                .show()
+        } else if (weight == "" || weight == "0") {
+            Toast.makeText(context, "Weight should not be empty or 0!", Toast.LENGTH_SHORT)
+                .show()
         }
     }
 
