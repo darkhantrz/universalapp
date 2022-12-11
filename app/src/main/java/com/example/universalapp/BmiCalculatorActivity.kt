@@ -25,7 +25,8 @@ class BmiCalculatorActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bmi_calculator)
 
-        val db = BMIDatabase.getDatabase(this)
+        val context = this
+//        val db = BMIDatabase.getDatabase(this)
 
         val calculateBtn: Button = findViewById(R.id.btn_calculate)
         val userName: EditText = findViewById(R.id.name)
@@ -34,12 +35,12 @@ class BmiCalculatorActivity : AppCompatActivity() {
         val result: TextView = findViewById(R.id.result)
 
         calculateBtn.setOnClickListener {
-            viewModel.calculate(height.text.toString(), weight.text.toString())
+            viewModel.calculate(userName.text.toString(), height.text.toString(), weight.text.toString(), context)
             hideSoftKeyboard(calculateBtn)
-            val bmiData = BMI(null, userName.text.toString(), weight.text.toString(), height.text.toString(), viewModel.result.value.toString())
-            Thread {
-                db.getBmiDao().addBmiData(bmiData)
-            }.start()
+//            val bmiData = BMI(null, userName.text.toString(), weight.text.toString(), height.text.toString(), viewModel.result.value.toString())
+//            Thread {
+//                db.getBmiDao().addBmiData(bmiData)
+//            }.start()
         }
 
         val goBackToMainActivity: ImageView = findViewById(R.id.goBackToMain)
