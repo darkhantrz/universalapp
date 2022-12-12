@@ -6,6 +6,12 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.universalapp.database.BMI
 import com.example.universalapp.database.BMIDatabase
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -14,7 +20,7 @@ class BmiViewModel : ViewModel() {
     var result = MutableLiveData<String>()
     var color = MutableLiveData<String>()
 
-    fun calculate(userName: String, height: String, weight: String, context: Context) {
+    fun calculate(userName: String, weight: String, height: String, context: Context, myRef: DatabaseReference) {
         if (weight != "" && height != "" && height != "0") {
             val h = height.toFloat() / 100 // /100 to get height in meter
             val w = weight.toFloat()
@@ -32,7 +38,8 @@ class BmiViewModel : ViewModel() {
             val db = BMIDatabase.getDatabase(context)
             val bmiData = BMI(null, userName, weight, height, result.value.toString())
             GlobalScope.launch {
-                db.getBmiDao().addBmiData(bmiData)
+                //db.getBmiDao().addBmiData(bmiData)
+                myRef.child(myRef.push().key ?: "Next data").setValue(BMI(null, userName, weight, height, result.value.toString()))
             }
 
         } else if (userName == "") {

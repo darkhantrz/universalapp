@@ -34,4 +34,8 @@
     <string name="next_image">Next image</string>
     <string name="image_shower">Image shower</string>
     <string name="show_list">Show List</string>
+    <string name="name_recycler_view">Name:</string>
+    <string name="weight_recycler_view">"Weight:"</string>
+    <string name="height_recycler_view">"Weight:"</string>
+    <string name="result_recycler_view">"Result:"</string>
 </resources>

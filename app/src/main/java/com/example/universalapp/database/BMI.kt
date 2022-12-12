@@ -9,11 +9,11 @@ data class BMI(
     @PrimaryKey(autoGenerate = true)
     val id: Int? = null,
     @ColumnInfo(name = "name")
-    val name: String,
+    val name: String? = null,
     @ColumnInfo(name = "weight")
-    val weight: String,
+    val weight: String? = null,
     @ColumnInfo(name = "height")
-    val height: String,
+    val height: String? = null,
     @ColumnInfo(name = "result")
-    val result: String
+    val result: String? = null
 )
